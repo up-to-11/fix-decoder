@@ -1,6 +1,6 @@
 define(
     [
-        'data'
+        'szse_data'
     ],
     function(data)
     {
