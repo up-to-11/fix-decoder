@@ -179,6 +179,10 @@ define(
                 "name": "VotingPreference 投票意向",
                 "type": "C1"
             },
+            "8538": {
+                "name": "TradingPhaseCode 产品所处的交易阶段代码",
+                "type": "C8"
+            },
             "8539": {
                 "name": "ValidationCode 密码激活校验号",
                 "type": "N9"
@@ -232,6 +236,30 @@ define(
                     "0": "Accepted，接受",
                     "1": "Rejected，拒绝"
                 }
+            },
+            "10076": {
+                "name": "ResendStatus 重传状态",
+                "type": "N2"
+            },
+            "10077": {
+                "name": "ResendType 重发种类",
+                "type": "N2"
+            },
+            "10116": {
+                "name": "BidApplSeqNum 买方委托索引",
+                "type": "SeqNum"
+            },
+            "10117": {
+                "name": "OfferApplSeqNum 卖方委托索引",
+                "type": "SeqNum"
+            },
+            "10184": {
+                "name": "Contactor 联系人",
+                "type": "C12"
+            },
+            "10185": {
+                "name": "ContactInfo 联系方式",
+                "type": "C30"
             },
             "10179": {
                 "name": "ReportIndex 回报记录号",
@@ -358,6 +386,26 @@ define(
                     "1": "Cancel，撤销"
                 }
             },
+            "10201": {
+                "name": "ChannelNo 频道代码",
+                "type": "N4"
+            },
+            "10202": {
+                "name": "NoSwitch 开关个数/PSX NoCounterpartyTrader",
+                "type": "NumInGroup"
+            },
+            "10203": {
+                "name": "SecuritySwitchType 开关类别/PSX CounterpartyTraderID",
+                "type": "N4"
+            },
+            "10204": {
+                "name": "SecuritySwitchStatus 开关状态",
+                "type": "Boolean"
+            },
+            "10205": {
+                "name": "EndOfChannel 频道结束标志",
+                "type": "Boolean"
+            },
             "10206": {
                 "name": "UnderlyingShareProperty 基础证券股份性质",
                 "type": "C2",
@@ -365,6 +413,52 @@ define(
                     "00": "无限售流通股",
                     "01": "首发后限售股"
                 }
+            },
+            "10207": {
+                "name": "StockNum 统计量指标样本个数",
+                "type": "N9"
+            },
+            "10208": {
+                "name": "NoMDStreamID 行情类别个数",
+                "type": "NumInGroup"
+            },
+            "10209": {
+                "name": "RawDataFormat 二进制数据格式",
+                "type": "C8"
+            },
+            "10210": {
+                "name": "AmountStatus 额度状态",
+                "type": "C1",
+                "values": {
+                    "1": "额度不可用",
+                    "2": "额度可用"
+                }
+            },
+            "10211": {
+                "name": "MemberID 交易商代码",
+                "type": "C6"
+            },
+            "10212": {
+                "name": "InvestorType 交易主体类型",
+                "type": "C2",
+                "values": {
+                    "01": "自营",
+                    "02": "资管",
+                    "03": "机构经纪",
+                    "04": "个人经纪"
+                }
+            },
+            "10213": {
+                "name": "InvestorID 交易主体代码",
+                "type": "C10"
+            },
+            "10214": {
+                "name": "InvestorName 客户名称",
+                "type": "C120"
+            },
+            "10215": {
+                "name": "TraderCode 交易员代码",
+                "type": "C8"
             },
             "10216": {
                 "name": "SettlPeriod 结算周期",
@@ -375,6 +469,18 @@ define(
                     "2": "T+2",
                     "3": "T+3"
                 }
+            },
+            "10219": {
+                "name": "Memo 备注",
+                "type": "C160"
+            },
+            "10220": {
+                "name": "AuctionVolumeTrade 匹配成交成交量",
+                "type": "Qty"
+            },
+            "10221": {
+                "name": "AuctionValueTrade 匹配成交成交金额",
+                "type": "Amt"
             },
             "10222": {
                 "name": "QuoteRequestStatus 询价请求状态",
@@ -406,6 +512,26 @@ define(
             "10232": {
                 "name": "NoCounterInfos 对手方交易主体个数",
                 "type": "NumInGroup"
+            },
+            "10237": {
+                "name": "QuoteRequestRejectText 询价请求拒绝原因说明 ",
+                "type": "C50"
+            },
+            "10240": {
+                "name": "TradeReportRejectText 成交申报拒绝原因说明 ",
+                "type": "C50"
+            },
+            "10241": {
+                "name": "UnderlyingCashOrderQty 基础证券券面总额 ",
+                "type": "Amt"
+            },
+            "10244": {
+                "name": "GracePeriod 申报宽限期",
+                "type": "N4"
+            },
+            "10245": {
+                "name": "SupplementaryAgreement 补充约定",
+                "type": "C600"
             }
         });
 
@@ -535,6 +661,20 @@ define(
             "20145": "无效账户，证券账户在交易商已报备的交易主体账户列表中不存在",
             "20146": "订单已超时，订单已超时",
             "20147": "询价交易ID重复，询价请求QuoteReqID、报价QuoteID、报价回复QuoteRespID重复",
+            "20149": "无效账户，债券转让业务回售转售中,卖委托的证券账户非回售转售专用账户 ",
+            "20150": "结算方式错误，结算方式错误 ",
+            "20151": "结算周期错误，结算周期错误 ",
+            "20153": "借贷期限错，债券借贷初始交易、到期续做标的券的到期日小于合约的到期日 ",
+            "20154": "借贷费用场内支付金额错，借贷费用场内支付金额大于借贷费用金额 ",
+            "20155": "申报宽限期错，申报宽限期不符合规则 ",
+            "20156": "业务禁止，标的券非法 ",
+            "20157": "业务禁止，换出质押券不足 ",
+            "20158": "业务禁止，债券借贷在途合约不允许申报解除质押 ",
+            "20159": "标的券非法，债券借贷初始交易、到期续做的标的券不在允许的标的券范围内；债券借贷提前终止、到期结算已摘牌标的证券不能指定数量 ",
+            "20160": "标的券非法，债券借贷初始交易、到期续做的标的券全天停牌 ",
+            "20161": "券面总额非法，标的证券券面总额不符合规则 ",
+            "20162": "券面总额非法，质押券券面总额不符合规则 ",
+            "20163": "借贷期限错，债券借贷的到期日不为交易",
             "20201": "议案代码错，议案号和子议案号错误",
             "20202": "表决意见错，投票意向错误",
             "29995": "市场互联拒绝，港股通撤单请求被联交所拒绝",
