@@ -5,9 +5,17 @@ define(
     function(data)
     {
         var fields = _.assign(_.clone(data.fieldById), {
+            "999":{
+                "name": "TemplateID 模板号",
+                "type": "N4"
+            },
             "1003": {
                 "name": "TradeID 交易所成交申报编号",
                 "type": "C16"
+            },
+            "1023":{
+                "name": "MDPriceLevel 买卖盘档位",
+                "type": "N2"
             },
             "1090": {
                 "name": "MaxPriceLevels 最多成交价位数",
@@ -148,9 +156,29 @@ define(
                     "416": "债券现券交易询价成交报价回复申报"
                 }
             },
+            "1181": {
+                "name": "ApplSeqNum 消息记录号",
+                "type": "SEQNUM"
+            },
+            "1182": {
+                "name": "ApplBegSeqNum 起始序号",
+                "type": "SEQNUM"
+            },
+            "1183": {
+                "name": "ApplEndSeqNum 结束序号",
+                "type": "SEQNUM"
+            },
+            "1189": {
+                "name": "TimeToExpiration 期限（天）",
+                "type": "N4"
+            },
             "1328": {
                 "name": "RejectText 拒绝原因说明",
                 "type": "C16"
+            },
+            "1500":{
+                "name": "MDStreamID 行情类别",
+                "type": "C3"
             },
             "8502": {
                 "name": "DesignationInstruction 注册指令",
