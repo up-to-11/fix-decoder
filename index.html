@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Online FIX Message Decoder</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <link rel="stylesheet" href="styles/styles.css" type="text/css">
+
+    <script id="result-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="message side-{{this.side}}">
+            {{#if this.type}}
+            <h1>{{this.type}}</h1>
+            {{/if}}
+            <table>
+                <thead>
+                <tr>
+                    <td>Field</td>
+                    <td>Field Name</td>
+                    <td class="data-type">Data Type</td>
+                    <td>Value</td>
+                </tr>
+                </thead>
+                {{#each this.fields}}
+                <tr class="{{this.classes}}">
+                <td class="field-id"><a href="http://www.onixs.biz/fix-dictionary/{{../fixVersion}}/tagNum_{{this.fieldId}}.html" target="_blank">{{this.fieldId}}</a></td>
+                    <td class="field-name">{{this.field.name}}</td>
+                    <td class="field-type data-type">{{this.field.type}}</td>
+                    {{#if this.decodedValue}}
+                    <td class="field-value">{{this.decodedValue}} <span class="encoded-value">({{this.value}})</span></td>
+                    {{else}}
+                    <td class="field-value">{{this.value}}</td>
+                    {{/if}}
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+        {{/each}}
+    </script>
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-936661-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</head>
+
+<body>
+
+    <div id="fix-message-input-container">
+        <textarea spellcheck="false" id="fix-message-input" placeholder="Paste your FIX message here"></textarea>
+    </div>
+
+    <div id="fix-message-output-container"></div>
+
+    <a href="#" class="sample-message-link" id="clear">Clear</a>
+
+    <div id="about">
+        <p>The <em>Online FIX Message Decoder</em> is a simple, open source web application for quickly decoding and visualising
+        the cryptic payload of a FIX message.</p>
+
+        <p>Just paste a FIX message in the text box above.</p>
+
+        <ul>
+            <li>Stray text will be ignored</li>
+            <li>You can paste multiple messages in one go</li>
+        </ul>
+
+        <p>Try some of these sample messages:</p>
+
+        <ul>
+            <li><a href="#" class="sample-message-link" data-index="0">Sample 1</a></li>
+            <li><a href="#" class="sample-message-link" data-index="1">Sample 2</a></li>
+            <li><a href="#" class="sample-message-link" data-index="2">Sample 3</a></li>
+        </ul>
+
+        <p>You can copy the page's URL to send the decoded message via email or instant messaging.</p>
+    </div>
+
+    <div id="options">
+        <input type="checkbox" id="show-data-type" />
+        <label for="show-data-type">Show data types</label>
+    </div>
+
+    <div id="footer">
+        <div id="disclaimer">all processing occurs in the browser &mdash; your data is never sent to anyone</div>
+        <div id="copyright">&copy; drew noakes 2012-2014 &mdash; all rights reserved &mdash; no warranties expressed or implied</div>
+        <img src="img/github-icon.png" width="16" height="16" /> <a href="https://github.com/drewnoakes/fix-decoder">hosted on github</a>
+    </div>
+
+    <script type="text/javascript">
+        require = {
+            urlArgs: 'noCache=' + new Date().getTime()
+        };
+    </script>
+
+    <script type="text/javascript" src="scripts/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/lodash.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/require.min.js" data-main="scripts/app/main"></script>
+    <script type="text/javascript" src="scripts/lib/handlebars.min.js"></script>
+</body>
+
+</html>
